@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="urf8">
+    <title>Homework week1.2</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Danh sách sắp xếp theo tuổi giảm dần</h1>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Tên</th>
+        <th>Tuổi</th>
+        <th>Sở thích</th>
+      </tr>
+      <tr th:each="user: ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.ten}"></td>
+        <td th:text="${user.tuoi}"></td>
+        <td th:text="${user.sothich}"></td>
+      </tr>
+    </table>
+
+  </body>
+</html>
