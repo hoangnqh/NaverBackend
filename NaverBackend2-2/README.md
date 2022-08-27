@@ -1,0 +1,31 @@
+### 2. RESTFull API
+#### Department
+##### GET /api/department
+##### GET /api/department/{id}
+##### POST /api/department/{id}
+##### PUT /api/department/{id}
+##### DELETE /api/department/{id}
+####
+#### Employee
+##### GET /api/employee
+##### GET /api/employee/{id}
+##### POST /api/employee/{id}
+##### PUT /api/employee/{id}
+##### DELETE /api/employee/{id}
+#
+#
+### 3. 
+##### GET /api/department/{id}/countEmployee
+#
+#
+### 4.
+##### GET /api/employee/{id}/info
+#
+#
+### 5. Factory method + singleton
+##### http://localhost:8080/factory-method/SERver
+Type:SERver
+Computer:Server
+##### http://localhost:8080/factory-method/Pc
+Type:Pc
+Computer:PC
