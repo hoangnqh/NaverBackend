@@ -30,6 +30,9 @@ Ecommerce Management
 
 ## 1 Init data and insert into database
 This project uses H2 database
+
+[Database.java](https://github.com/hoangnqh/NaverBackend/blob/main/NaverBackend3-1-Project1/src/main/java/com/example/project1/database/Database.java)
+
 ### Init Customer
 Request
 
@@ -203,6 +206,9 @@ Response
 
 
 ## 2 Get product with condition 
+
+[ProductMybatisRepository.java](https://github.com/hoangnqh/NaverBackend/blob/main/NaverBackend3-1-Project1/src/main/java/com/example/project1/repository/mybatis/ProductMybatisRepository.java)
+
 ### 2.1 LESS_THAN
 
 Request
@@ -331,6 +337,9 @@ Response
 ]
 ```
 ## 3 Add item
+
+[CartItemServiceImpl.java](https://github.com/hoangnqh/NaverBackend/blob/main/NaverBackend3-1-Project1/src/main/java/com/example/project1/service/impl/CartItemServiceImpl.java)
+
 Request
 
 POST /api/v1/update-new-item
@@ -396,6 +405,9 @@ Response
 }
 ```
 ## 4 Update the item if it already exists otherwise add item
+
+[CartItemServiceImpl.java](https://github.com/hoangnqh/NaverBackend/blob/main/NaverBackend3-1-Project1/src/main/java/com/example/project1/service/impl/CartItemServiceImpl.java)
+
 Request
 
 POST /api/v1/update-new-item
@@ -614,6 +626,9 @@ Response
 
 
 ## 5 Get item info list by parameter
+
+[CartItemMybatisRepository.java](https://github.com/hoangnqh/NaverBackend/blob/main/NaverBackend3-1-Project1/src/main/java/com/example/project1/repository/mybatis/CartItemMybatisRepository.java)
+
 Request
 
 GET /api/v1/info-cart-item

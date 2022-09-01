@@ -23,10 +23,10 @@ Ecommerce Management
 	[Handle the case where product id is not exists](#Handle-the-case-where-product-id-is-not-exists)
 
 
-4. [Update the item if it already exists, otherwise add item](#4-Update-the-item-if-it-already-exists,-otherwise-add-item)
+4. [Update the item if it already exists, otherwise add item](#4-Update-the-item-if-it-already-exists-otherwise-add-item)
 	
 	
-5. [Get list of item's info by parameter](#5-Get-list-of-item's-info-by-parameter)
+5. [Get item info list by parameter](#5-Get-item-info-list-by-parameter)
 
 ## 1 Init data and insert into database
 This project uses H2 database
@@ -395,7 +395,7 @@ Response
     "data": ""
 }
 ```
-## 4 Update the item if it already exists, otherwise add item
+## 4 Update the item if it already exists otherwise add item
 Request
 
 POST /api/v1/update-new-item
@@ -613,7 +613,7 @@ Response
 ```
 
 
-## 5 Get list of item's info by parameter
+## 5 Get item info list by parameter
 Request
 
 GET /api/v1/info-cart-item
