@@ -53,6 +53,16 @@ public class Database {
                 logger.info("insert data:" + productRepository.save(product9));
                 Product product10 = new Product("product10", "10", "10", 5L, new BigDecimal(12445L));
                 logger.info("insert data:" + productRepository.save(product10));
+                Product product11 = new Product("product10", "11", "11", 5L, new BigDecimal(22445L));
+                logger.info("insert data:" + productRepository.save(product11));
+                Product product12 = new Product("product10", "12", "12", 5L, new BigDecimal(27445L));
+                logger.info("insert data:" + productRepository.save(product12));
+                Product product13 = new Product("product10", "13", "13", 5L, new BigDecimal(27445L));
+                logger.info("insert data:" + productRepository.save(product13));
+                Product product14 = new Product("product10", "14", "14", 5L, new BigDecimal(27445L));
+                logger.info("insert data:" + productRepository.save(product14));
+                Product product15 = new Product("product10", "15", "15", 5L, new BigDecimal(27445L));
+                logger.info("insert data:" + productRepository.save(product15));
             }
         };
     }

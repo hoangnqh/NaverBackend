@@ -18,14 +18,15 @@ Ecommerce Management
 	
 3. [Add item](#3-Add-item)
 
-
-4. [Update the item if it already exists, otherwise add item](#4-Update-the-item-if-it-already-exists,-otherwise-add-item)
 	[Handle the case where customer id is not exists](#Handle-the-case-where-customer-id-is-not-exists)
 	
 	[Handle the case where product id is not exists](#Handle-the-case-where-product-id-is-not-exists)
+
+
+4. [Update the item if it already exists, otherwise add item](#4-Update-the-item-if-it-already-exists-,--otherwise-add-item)
 	
 	
-5. [Get list of item's info by parameter](#5-Get-list-of-item's-info-by-parameter)
+5. [Get list of item's info by parameter](#5-Get-list-of-item-'-s-info-by-parameter)
 
 ## 1 Init data and insert into database
 This project uses H2 database
@@ -156,6 +157,46 @@ Response
         "size": "10",
         "quantity": 5,
         "price": 12445.00
+    },
+    {
+        "id": 11,
+        "nameProduct": "product10",
+        "type": "11",
+        "size": "11",
+        "quantity": 5,
+        "price": 22445.00
+    },
+    {
+        "id": 12,
+        "nameProduct": "product10",
+        "type": "12",
+        "size": "12",
+        "quantity": 5,
+        "price": 27445.00
+    },
+    {
+        "id": 13,
+        "nameProduct": "product10",
+        "type": "13",
+        "size": "13",
+        "quantity": 5,
+        "price": 27445.00
+    },
+    {
+        "id": 14,
+        "nameProduct": "product10",
+        "type": "14",
+        "size": "14",
+        "quantity": 5,
+        "price": 27445.00
+    },
+    {
+        "id": 15,
+        "nameProduct": "product10",
+        "type": "15",
+        "size": "15",
+        "quantity": 5,
+        "price": 27445.00
     }
 ]
 ```
@@ -311,35 +352,8 @@ Response
             "productId": 2
         },
         "quantityWished": 2,
-        "dateAdded": "2022-08-31T16:08:04.130+00:00",
+        "dateAdded": "2022-09-01T04:58:55.167+00:00",
         "totalAmount": 82650.00
-    }
-}
-```
-## 4 Update the item if it already exists, otherwise add item
-Request
-
-POST /api/v1/update-new-item
-```
-{
-	"customerId": 1,
-	"productId": 2,
-	"quantity": 3
-}
-```
-Response
-```
-{
-    "status": "Success",
-    "message": "Add item success",
-    "data": {
-        "id": {
-            "cartId": 1,
-            "productId": 2
-        },
-        "quantityWished": 5,
-        "dateAdded": "2022-08-31T16:09:16.279+00:00",
-        "totalAmount": 206625.00
     }
 }
 ```
@@ -369,7 +383,7 @@ POST /api/v1/update-new-item
 ```
 {
     "customerId": 5,
-    "productId": 13,
+    "productId": 16,
     "quantity": 3
 }
 ```
@@ -381,16 +395,234 @@ Response
     "data": ""
 }
 ```
+## 4 Update the item if it already exists, otherwise add item
+Request
+
+POST /api/v1/update-new-item
+```
+{
+    "customerId": 5,
+    "productId": 10,
+    "quantity": 3
+}
+```
+Response
+```
+{
+    "status": "Success",
+    "message": "Add item success",
+    "data": {
+        "id": {
+            "cartId": 2,
+            "productId": 10
+        },
+        "quantityWished": 3,
+        "dateAdded": "2022-09-01T04:59:30.912+00:00",
+        "totalAmount": 37335.00
+    }
+}
+```
+
+Request
+
+POST /api/v1/update-new-item
+```
+{
+    "customerId": 5,
+    "productId": 10,
+    "quantity": 6
+}
+```
+Response
+```
+{
+    "status": "Success",
+    "message": "Add item success",
+    "data": {
+        "id": {
+            "cartId": 2,
+            "productId": 10
+        },
+        "quantityWished": 9,
+        "dateAdded": "2022-09-01T04:59:42.988+00:00",
+        "totalAmount": 112005.00
+    }
+}
+```
+
+Request
+
+POST /api/v1/update-new-item
+```
+{
+    "customerId": 5,
+    "productId": 10,
+    "quantity": 6
+}
+```
+Response
+```
+{
+    "status": "Success",
+    "message": "Add item success",
+    "data": {
+        "id": {
+            "cartId": 2,
+            "productId": 10
+        },
+        "quantityWished": 15,
+        "dateAdded": "2022-09-01T04:59:58.216+00:00",
+        "totalAmount": 186675.00
+    }
+}
+```
+
+Request
+
+POST /api/v1/update-new-item
+```
+{
+    "customerId": 5,
+    "productId": 11,
+    "quantity": 6
+}
+```
+Response
+```
+{
+    "status": "Success",
+    "message": "Add item success",
+    "data": {
+        "id": {
+            "cartId": 2,
+            "productId": 11
+        },
+        "quantityWished": 6,
+        "dateAdded": "2022-09-01T05:00:13.483+00:00",
+        "totalAmount": 134670.00
+    }
+}
+```
+
+Request
+
+POST /api/v1/update-new-item
+```
+{
+    "customerId": 5,
+    "productId": 12,
+    "quantity": 6
+}
+```
+Response
+```
+{
+    "status": "Success",
+    "message": "Add item success",
+    "data": {
+        "id": {
+            "cartId": 2,
+            "productId": 12
+        },
+        "quantityWished": 6,
+        "dateAdded": "2022-09-01T05:00:33.272+00:00",
+        "totalAmount": 164670.00
+    }
+}
+```
+
+Request
+
+POST /api/v1/update-new-item
+```
+{
+    "customerId": 5,
+    "productId": 13,
+    "quantity": 6
+}
+```
+Response
+```
+{
+    "status": "Success",
+    "message": "Add item success",
+    "data": {
+        "id": {
+            "cartId": 2,
+            "productId": 13
+        },
+        "quantityWished": 6,
+        "dateAdded": "2022-09-01T05:00:45.511+00:00",
+        "totalAmount": 164670.00
+    }
+}
+```
+
+Request
+
+POST /api/v1/update-new-item
+```
+{
+    "customerId": 5,
+    "productId": 14,
+    "quantity": 6
+}
+```
+Response
+```
+{
+    "status": "Success",
+    "message": "Add item success",
+    "data": {
+        "id": {
+            "cartId": 2,
+            "productId": 14
+        },
+        "quantityWished": 6,
+        "dateAdded": "2022-09-01T05:00:56.270+00:00",
+        "totalAmount": 164670.00
+    }
+}
+```
+
+Request
+
+POST /api/v1/update-new-item
+```
+{
+    "customerId": 5,
+    "productId": 15,
+    "quantity": 6
+}
+```
+Response
+```
+{
+    "status": "Success",
+    "message": "Add item success",
+    "data": {
+        "id": {
+            "cartId": 2,
+            "productId": 15
+        },
+        "quantityWished": 6,
+        "dateAdded": "2022-09-01T05:01:11.783+00:00",
+        "totalAmount": 164670.00
+    }
+}
+```
+
+
 ## 5 Get list of item's info by parameter
 Request
 
 GET /api/v1/info-cart-item
 ```
 {
-    "customerId": 1,
-    "nameProduct": "product2",
-    "offset": 0,
-    "limit": 1
+    "customerId": 5,
+    "nameProduct": "product10",
+    "offset": 2,
+    "limit": 3
 }
 ```
 Response
@@ -400,19 +632,85 @@ Response
     "message": "ok",
     "data": [
         {
-            "cartId": 1,
-            "productId": 2,
-            "nameProduct": "product2",
+            "cartId": 2,
+            "productId": 12,
+            "nameProduct": "product10",
             "type": "12",
             "size": "12",
-            "quantity": 5,
-            "price": 41325.00,
-            "totalAmount": 206625.00,
-            "dateAdded": "2022-08-31T16:09:16.279+00:00"
+            "quantity": 6,
+            "price": 27445.00,
+            "totalAmount": 164670.00,
+            "dateAdded": "2022-09-01T05:00:33.272+00:00"
+        },
+        {
+            "cartId": 2,
+            "productId": 13,
+            "nameProduct": "product10",
+            "type": "13",
+            "size": "13",
+            "quantity": 6,
+            "price": 27445.00,
+            "totalAmount": 164670.00,
+            "dateAdded": "2022-09-01T05:00:45.511+00:00"
+        },
+        {
+            "cartId": 2,
+            "productId": 14,
+            "nameProduct": "product10",
+            "type": "14",
+            "size": "14",
+            "quantity": 6,
+            "price": 27445.00,
+            "totalAmount": 164670.00,
+            "dateAdded": "2022-09-01T05:00:56.270+00:00"
         }
     ]
 }
 ```
+
+Request
+
+GET /api/v1/info-cart-item
+```
+{
+    "customerId": 5,
+    "nameProduct": "product10",
+    "offset": 3,
+    "limit": 2
+}
+```
+Response
+```
+{
+    "status": "ok",
+    "message": "ok",
+    "data": [
+        {
+            "cartId": 2,
+            "productId": 13,
+            "nameProduct": "product10",
+            "type": "13",
+            "size": "13",
+            "quantity": 6,
+            "price": 27445.00,
+            "totalAmount": 164670.00,
+            "dateAdded": "2022-09-01T05:00:45.511+00:00"
+        },
+        {
+            "cartId": 2,
+            "productId": 14,
+            "nameProduct": "product10",
+            "type": "14",
+            "size": "14",
+            "quantity": 6,
+            "price": 27445.00,
+            "totalAmount": 164670.00,
+            "dateAdded": "2022-09-01T05:00:56.270+00:00"
+        }
+    ]
+}
+```
+
 Request
 
 GET /api/v1/info-cart-item
