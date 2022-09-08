@@ -16,7 +16,7 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
-    @PostMapping("/test-departmentDto")
+    @PostMapping("/test-DepartmentDto")
     public ResponseEntity<?> testEmployeeDto(@RequestBody @Valid DepartmentDto departmentDto){
         return ResponseEntity.ok().body(
                 new BaseResponse("OK", "success", departmentService.getDepartmentDto(departmentDto)));

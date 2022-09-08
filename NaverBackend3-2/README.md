@@ -2,9 +2,13 @@
 
 
 ## 1. Cấu hình ứng dụng với các thuộc tính
+[application.properties](https://github.com/hoangnqh/NaverBackend/blob/main/NaverBackend3-2/src/main/resources/application.properties)
+
 ![Cấu hình thuộc tính](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend3-2/img/1.jpg)
 
 ## 2. Tạo 2 dto EmployeeDto và DepartmentDto
+[dto](https://github.com/hoangnqh/NaverBackend/tree/main/NaverBackend3-2/src/main/java/com/example/naverbackend32/payload/dto)
+
 ![EmployeeDto](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend3-2/img/EmployeeDto.jpg)
 
 ![DepartmentDto](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend3-2/img/DepartmentDto.jpg)
@@ -13,11 +17,550 @@
 
 #### EmployeeDto
 
+POST /likelion/test-employeeDto
+
+Request
+```
+{
+    "name": "12345678910",
+    "birthDate": "2002-01-20",
+    "gender": "boy",    
+    "email": "huyhoang@gmail.com"
+}
+```
+Response
+```
+{
+    "status": "OK",
+    "message": "success",
+    "data": {
+        "employeeId": null,
+        "name": "12345678910",
+        "birthDate": "2002-01-20T00:00:00.000+00:00",
+        "gender": "boy",
+        "email": "huyhoang@gmail.com"
+    }
+}
+```
+##### Trường hợp tên rỗng
+
+Request
+```
+{
+    "name": "",
+    "birthDate": "2002-01-20",
+    "gender": "boy",    
+    "email": "huyhoang@gmail.com"
+}
+```
+Response
+```
+{
+    "timestamp": "2022-09-08T02:20:23.121+00:00",
+    "status": 400,
+    "error": "Bad Request",
+    "trace": "org.springframework.web.bind.MethodArgumentNotValidException:    ...   "
+    "message": "Validation failed for object='employeeDto'. Error count: 2",
+    "errors": [
+        {
+            "codes": [
+                "Size.employeeDto.name",
+                "Size.name",
+                "Size.java.lang.String",
+                "Size"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "employeeDto.name",
+                        "name"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "name",
+                    "code": "name"
+                },
+                50,
+                10
+            ],
+            "defaultMessage": "Length from 10 to 50 characters",
+            "objectName": "employeeDto",
+            "field": "name",
+            "rejectedValue": "",
+            "bindingFailure": false,
+            "code": "Size"
+        },
+        {
+            "codes": [
+                "NotEmpty.employeeDto.name",
+                "NotEmpty.name",
+                "NotEmpty.java.lang.String",
+                "NotEmpty"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "employeeDto.name",
+                        "name"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "name",
+                    "code": "name"
+                }
+            ],
+            "defaultMessage": "Name must not be empty",
+            "objectName": "employeeDto",
+            "field": "name",
+            "rejectedValue": "",
+            "bindingFailure": false,
+            "code": "NotEmpty"
+        }
+    ],
+    "path": "/likelion/test-employeeDto"
+}
+```
+
+##### Trường hợp tên không có độ dài từ 10 đến 50
+
+Request
+```
+{
+    "name": "12345",
+    "birthDate": "2002-01-20",
+    "gender": "boy",    
+    "email": "huyhoang@gmail.com"
+}
+```
+Response
+```
+{
+    "timestamp": "2022-09-08T02:15:37.253+00:00",
+    "status": 400,
+    "error": "Bad Request",
+    "trace": "org.springframework.web.bind.MethodArgumentNotValidException:    ...    "
+    "message": "Validation failed for object='employeeDto'. Error count: 1",
+    "errors": [
+        {
+            "codes": [
+                "Size.employeeDto.name",
+                "Size.name",
+                "Size.java.lang.String",
+                "Size"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "employeeDto.name",
+                        "name"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "name",
+                    "code": "name"
+                },
+                50,
+                10
+            ],
+            "defaultMessage": "Length from 10 to 50 characters",
+            "objectName": "employeeDto",
+            "field": "name",
+            "rejectedValue": "12345",
+            "bindingFailure": false,
+            "code": "Size"
+        }
+    ],
+    "path": "/likelion/test-employeeDto"
+}
+````
+
+##### Trường hợp email không đúng format
+
+Request
+```
+{
+    "name": "12345678910",
+    "birthDate": "2002-01-20",
+    "gender": "boy",    
+    "email": "huyhoangmail.com"
+}
+```
+
+Response
+```
+{
+    "timestamp": "2022-09-08T02:21:59.430+00:00",
+    "status": 400,
+    "error": "Bad Request",
+    "trace": "org.springframework.web.bind.MethodArgumentNotValidException:    ...   "
+    "message": "Validation failed for object='employeeDto'. Error count: 1",
+    "errors": [
+        {
+            "codes": [
+                "Email.employeeDto.email",
+                "Email.email",
+                "Email.java.lang.String",
+                "Email"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "employeeDto.email",
+                        "email"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "email",
+                    "code": "email"
+                },
+                [],
+                {
+                    "arguments": null,
+                    "codes": [
+                        ".*"
+                    ],
+                    "defaultMessage": ".*"
+                }
+            ],
+            "defaultMessage": "Email is wrong format",
+            "objectName": "employeeDto",
+            "field": "email",
+            "rejectedValue": "huyhoangmail.com",
+            "bindingFailure": false,
+            "code": "Email"
+        }
+    ],
+    "path": "/likelion/test-employeeDto"
+}
+```
+
+##### Trường hợp email rỗng
+
+Request
+```
+{
+    "name": "12345678910",
+    "birthDate": "2002-01-20",
+    "gender": "boy",    
+    "email": ""
+}
+```
+
+Response
+```
+{
+    "timestamp": "2022-09-08T02:24:00.864+00:00",
+    "status": 400,
+    "error": "Bad Request",
+    "trace": "org.springframework.web.bind.MethodArgumentNotValidException:    ...   "
+    "message": "Validation failed for object='employeeDto'. Error count: 1",
+    "errors": [
+        {
+            "codes": [
+                "NotEmpty.employeeDto.email",
+                "NotEmpty.email",
+                "NotEmpty.java.lang.String",
+                "NotEmpty"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "employeeDto.email",
+                        "email"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "email",
+                    "code": "email"
+                }
+            ],
+            "defaultMessage": "Email must no be empty",
+            "objectName": "employeeDto",
+            "field": "email",
+            "rejectedValue": "",
+            "bindingFailure": false,
+            "code": "NotEmpty"
+        }
+    ],
+    "path": "/likelion/test-employeeDto"
+}
+```
+
+
 #### DepartmentDto
 
-## 3. Tạo service
+POST /likelion/test-Department
+
+Request
+```
+{
+    "deptName": "12345678910",
+    "description": "abc",
+    "employees": [
+        {
+            "name": "12345678910",
+            "birthDate": "2002-01-20",
+            "gender": "boy",
+            "email": "huyhoang@gmail.com"
+        }
+    ]
+}
+```
+
+Response
+```
+{
+    "status": "OK",
+    "message": "success",
+    "data": {
+        "departmentId": null,
+        "deptName": "12345678910",
+        "description": "abc",
+        "employeeDtos": null
+    }
+}
+```
+
+##### Trường hợp trên rỗng
+
+Request
+```
+{
+    "deptName": "",
+    "description": "abc",
+    "employees": [
+        {
+            "name": "12345678910",
+            "birthDate": "2002-01-20",
+            "gender": "boy",
+            "email": "huyhoang@gmail.com"
+        }
+    ]
+}
+```
+
+Response
+```
+{
+    "timestamp": "2022-09-08T02:29:52.199+00:00",
+    "status": 400,
+    "error": "Bad Request",
+    "trace": "org.springframework.web.bind.MethodArgumentNotValidException:    ...   "
+    "message": "Validation failed for object='departmentDto'. Error count: 2",
+    "errors": [
+        {
+            "codes": [
+                "NotEmpty.departmentDto.deptName",
+                "NotEmpty.deptName",
+                "NotEmpty.java.lang.String",
+                "NotEmpty"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "departmentDto.deptName",
+                        "deptName"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "deptName",
+                    "code": "deptName"
+                }
+            ],
+            "defaultMessage": "Name must not be empty",
+            "objectName": "departmentDto",
+            "field": "deptName",
+            "rejectedValue": "",
+            "bindingFailure": false,
+            "code": "NotEmpty"
+        },
+        {
+            "codes": [
+                "Size.departmentDto.deptName",
+                "Size.deptName",
+                "Size.java.lang.String",
+                "Size"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "departmentDto.deptName",
+                        "deptName"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "deptName",
+                    "code": "deptName"
+                },
+                50,
+                10
+            ],
+            "defaultMessage": "Length from 10 to 50 characters",
+            "objectName": "departmentDto",
+            "field": "deptName",
+            "rejectedValue": "",
+            "bindingFailure": false,
+            "code": "Size"
+        }
+    ],
+    "path": "/likelion/test-DepartmentDto"
+}
+```
+
+##### Trường hợp độ dài tên không nằm trong khoảng 10 tới 50
+
+Request
+```
+{
+    "deptName": "1234",
+    "description": "abc",
+    "employees": [
+        {
+            "name": "12345678910",
+            "birthDate": "2002-01-20",
+            "gender": "boy",
+            "email": "huyhoang@gmail.com"
+        }
+    ]
+}
+```
+
+Response
+```
+{
+    "timestamp": "2022-09-08T02:31:14.947+00:00",
+    "status": 400,
+    "error": "Bad Request",
+    "trace": "org.springframework.web.bind.MethodArgumentNotValidException:    ...   "
+    "message": "Validation failed for object='departmentDto'. Error count: 1",
+    "errors": [
+        {
+            "codes": [
+                "Size.departmentDto.deptName",
+                "Size.deptName",
+                "Size.java.lang.String",
+                "Size"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "departmentDto.deptName",
+                        "deptName"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "deptName",
+                    "code": "deptName"
+                },
+                50,
+                10
+            ],
+            "defaultMessage": "Length from 10 to 50 characters",
+            "objectName": "departmentDto",
+            "field": "deptName",
+            "rejectedValue": "1234",
+            "bindingFailure": false,
+            "code": "Size"
+        }
+    ],
+    "path": "/likelion/test-DepartmentDto"
+}
+```
+
+##### Trường hợp description rỗng
+
+Request
+```
+{
+    "deptName": "12345678910",
+    "description": "",
+    "employees": [
+        {
+            "name": "12345678910",
+            "birthDate": "2002-01-20",
+            "gender": "boy",
+            "email": "huyhoang@gmail.com"
+        }
+    ]
+}
+```
+
+Response
+```
+{
+    "timestamp": "2022-09-08T02:32:33.226+00:00",
+    "status": 400,
+    "error": "Bad Request",
+    "trace": "org.springframework.web.bind.MethodArgumentNotValidException:    ...   "
+    "message": "Validation failed for object='departmentDto'. Error count: 1",
+    "errors": [
+        {
+            "codes": [
+                "NotEmpty.departmentDto.description",
+                "NotEmpty.description",
+                "NotEmpty.java.lang.String",
+                "NotEmpty"
+            ],
+            "arguments": [
+                {
+                    "codes": [
+                        "departmentDto.description",
+                        "description"
+                    ],
+                    "arguments": null,
+                    "defaultMessage": "description",
+                    "code": "description"
+                }
+            ],
+            "defaultMessage": "Description must not be empty",
+            "objectName": "departmentDto",
+            "field": "description",
+            "rejectedValue": "",
+            "bindingFailure": false,
+            "code": "NotEmpty"
+        }
+    ],
+    "path": "/likelion/test-DepartmentDto"
+}
+```
+
+##### Trường hợp name của EmployeeDto trong DepartmentDto rỗng
+
+Request
+```
+{
+    "deptName": "12345678910",
+    "description": "abc",
+    "employees": [
+        {
+            "name": "",
+            "birthDate": "2002-01-20",
+            "gender": "boy",
+            "email": "huyhoang@gmail.com"
+        }
+    ]
+}
+```
+
+Response
+```
+{
+    "status": "OK",
+    "message": "success",
+    "data": {
+        "departmentId": null,
+        "deptName": "12345678910",
+        "description": "abc",
+        "employeeDtos": null
+    }
+}
+
+=> Chưa đúng trường hợp này
+```
+## 3. Tạo 2 service
+
+### Mỗi service tạo logger
+
+[service](https://github.com/hoangnqh/NaverBackend/tree/main/NaverBackend3-2/src/main/java/com/example/naverbackend32/service/impl)
+
+![Logger in service](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend3-2/img/loggerinservice.jpg)
 
 ### Ứng dụng AOP
+
+[config](https://github.com/hoangnqh/NaverBackend/tree/main/NaverBackend3-2/src/main/java/com/example/naverbackend32/config)
+
 ![AOP Department](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend3-2/img/AOP1.jpg)
 
 ![AOP Employee](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend3-2/img/AOP2.jpg)
