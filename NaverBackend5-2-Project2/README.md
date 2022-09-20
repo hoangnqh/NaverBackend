@@ -1,11 +1,10 @@
 # PROJECT 2 - week 5.2
 
-## Final project
-
-
-GET /api/v1/currency-calculation/from/{from}/to/{to}/amount/{amount}
+## Springboot - Microservice
 
 ### RestTemplate
+
+GET /api/v1/currency-calculation/from/{from}/to/{to}/amount/{amount}
 
 Example 1:
 
@@ -83,6 +82,8 @@ Response
 
 ### Feign Client
 
+GET /api/v1/currency-calculation/feign/from/{from}/to/{to}/amount/{amount}
+
 Example 4:
 
 Request
@@ -128,3 +129,11 @@ Response
     }
 }
 ```
+### Service Registry
+![Eureka](https://raw.githubusercontent.com/hoangnqh/Readme-img/main/NaverBackend/NaverBackend5-2-Project2/Eureka.jpg)
+
+### Cloud Gateway
+![Gateway](https://raw.githubusercontent.com/hoangnqh/Readme-img/main/NaverBackend/NaverBackend5-2-Project2/Gateway.jpg)
+
+### Cloud Config Server
+![ConfigServer](https://raw.githubusercontent.com/hoangnqh/Readme-img/main/NaverBackend/NaverBackend5-2-Project2/ConfigServer.jpg)
