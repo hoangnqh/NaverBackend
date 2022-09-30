@@ -130,10 +130,10 @@ Response
 }
 ```
 ### Service Registry
-![Eureka](https://raw.githubusercontent.com/hoangnqh/Readme-img/main/NaverBackend/NaverBackend5-2-Project2/Eureka.jpg)
+![Eureka](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend5-2-Project2/readme-img/Eureka.jpg)
 
 ### Cloud Gateway
-![Gateway](https://raw.githubusercontent.com/hoangnqh/Readme-img/main/NaverBackend/NaverBackend5-2-Project2/Gateway.jpg)
+![Gateway](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend5-2-Project2/readme-img/Gateway.jpg)
 
 ### Cloud Config Server
-![ConfigServer](https://raw.githubusercontent.com/hoangnqh/Readme-img/main/NaverBackend/NaverBackend5-2-Project2/ConfigServer.jpg)
+![ConfigServer](https://raw.githubusercontent.com/hoangnqh/NaverBackend/main/NaverBackend5-2-Project2/readme-img/ConfigServer.jpg)
